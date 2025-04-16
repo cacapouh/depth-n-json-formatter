@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import jsonfmt from '@/jsonfmtjs.js'
+import { jsonfmt } from '@/jsonfmtjs.js'
 
 const depth = ref(1)
 const jsonString = ref(
