@@ -4,7 +4,7 @@ import { jsonfmt } from '@/jsonfmtjs.js'
 
 const depth = ref(1)
 const jsonString = ref(
-  '{"glossary":{"title":"example glossary","GlossDiv":{"title":"S","GlossList":{"GlossEntry":{"ID":"SGML","SortAs":"SGML","GlossTerm":"Standard Generalized Markup Language","Acronym":"SGML","Abbrev":"ISO 8879:1986","GlossDef":{"para":"A meta-markup language, used to create markup languages such as DocBook.","GlossSeeAlso":["GML","XML"]},"GlossSee":"markup"}}}}}',
+  '{"min_position":8,"has_more_items":false,"items_html":"Bike","new_latent_count":1,"data":{"length":20,"text":"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},"numericalArray":[23,32,20,31,30],"StringArray":["Carbon","Oxygen","Oxygen","Nitrogen"],"multipleTypesArray":true,"objArray":[{"class":"lower","age":5},{"class":"middle","age":7},{"class":"upper","age":5},{"class":"upper","age":8},{"class":"upper","age":4}]}',
 )
 
 const incrementDepth = () => {
@@ -15,7 +15,12 @@ const decrementDepth = () => {
 }
 
 const formattedJson = computed(() => {
-  return jsonfmt(jsonString.value, depth.value, 2)
+  try {
+    return jsonfmt(jsonString.value, depth.value, 2)
+  } catch (e) {
+    console.error(e)
+    return 'Failed to format json'
+  }
 })
 </script>
 
