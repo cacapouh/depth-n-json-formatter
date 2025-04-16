@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import jsonfmt from '@/jsonfmtjs.js'
 
 const depth = ref(1)
 const jsonString = ref(
@@ -14,7 +15,7 @@ const decrementDepth = () => {
 }
 
 const formattedJson = computed(() => {
-  return jsonString.value
+  return jsonfmt(jsonString.value, depth.value, 2)
 })
 </script>
 
