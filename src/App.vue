@@ -42,6 +42,19 @@ const formattedJson = computed(() => {
     <label>Output:</label>
     <br />
     <textarea readonly :value="formattedJson" class="textarea"></textarea>
+    <br />
+    <br />
+    <hr />
+
+    <footer>
+      <label>Install a CLI command via Homebrew:</label>
+      <pre class="code">
+      <code>
+        $ brew tap cacapouh/jsonfmt
+        $ brew install cacapouh/jsonfmt/jsonfmt
+      </code>
+    </pre>
+    </footer>
   </div>
 </template>
 
@@ -54,5 +67,10 @@ const formattedJson = computed(() => {
 .textarea {
   width: 100%;
   min-height: 200px;
+}
+
+.code {
+  background-color: white;
+  display: flex;
 }
 </style>
